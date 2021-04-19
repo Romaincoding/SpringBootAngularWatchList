@@ -5,7 +5,10 @@ import { UserFormComponent } from './user-form/user-form.component';
 
 const routes: Routes = [
   { path: 'users', component: UserListComponent },
-  { path: 'adduser', component: UserFormComponent }
+  { path: 'adduser', component: UserFormComponent },
+  { path: '' , redirectTo: 'home' , pathMatch: 'full' },
+  { path: '**' , redirectTo: 'home' }
+
 ];
 
 @NgModule({

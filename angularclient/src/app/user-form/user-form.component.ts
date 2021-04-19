@@ -23,6 +23,7 @@ export class UserFormComponent {
     this.userService.save(this.user).subscribe(result => this.gotoUserList());
   }
 
+
   gotoUserList() {
     this.router.navigate(['/users']);
   }
