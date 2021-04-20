@@ -28,7 +28,7 @@ public class User {
     private String pseudo;
 
     @Column(name = "avatar_id")
-    private int    avatarId;
+    private int    avatarId = 1;
 
     @Column(name = "date_inscription")
     private Date date     = new Date();
@@ -41,7 +41,7 @@ public class User {
 
     }
     public User(String mail, String pwd, String nick,int avatarId){
-        this.email    = mail;
+        this.email = mail;
         this.password = pwd;
         this.pseudo   = nick;
         this.avatarId = avatarId;
@@ -75,8 +75,8 @@ public class User {
     public void setId(int id) {
         this.id = id;
     }
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmail(String e_mail) {
+        this.email = e_mail;
     }
     public void setPassword(String password) {
         this.password = password;
@@ -96,7 +96,7 @@ public class User {
         String out = "";
         out += this.id        + " ";
         out += this.pseudo    + " ";
-        out += this.email     + " ";
+        out += this.email + " ";
         out += this.password  + " ";
         out += this.date      + " ";
         out += this.avatarId  + " ";

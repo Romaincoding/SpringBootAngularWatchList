@@ -14,6 +14,14 @@ export class UserListComponent implements OnInit {
   constructor(private userService: UserService) {
   }
 
+  onDelete(user){
+    this.userService.deleteById(user.id).subscribe((data) => {
+    this.users.splice(this.users.indexOf(user),1);
+  },(error) => {
+   console.log(error);
+  });
+  }
+
   ngOnInit() {
     this.userService.findAll().subscribe(data => {
       this.users = data;

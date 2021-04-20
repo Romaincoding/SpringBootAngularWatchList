@@ -1,12 +1,12 @@
 package com.example.WatchListSpring;
 
-import com.example.WatchListSpring.UserRepository;
 import com.example.WatchListSpring.entity.User;
+import com.example.WatchListSpring.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Objects;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -23,15 +23,18 @@ public class UserController {
     }
 
     @PostMapping("/users")
-    void addUser(@RequestBody User user) {
-        userRepository.save(user);
+    void addUser(@RequestBody User user){
+    userRepository.save(user);
     }
-    public static Throwable findCauseUsingPlainJava(Throwable throwable) {
-        Objects.requireNonNull(throwable);
-        Throwable rootCause = throwable;
-        while (rootCause.getCause() != null && rootCause.getCause() != rootCause) {
-            rootCause = rootCause.getCause();
-        }
-        return rootCause;
+
+
+    @DeleteMapping("/users/{id}")
+     boolean deleteUser(@PathVariable int id) {
+        userRepository.deleteById(id);
+        return true;
+
     }
+
+
+
 }

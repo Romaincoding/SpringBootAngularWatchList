@@ -13,6 +13,7 @@
         <td>{{ user.email }}</td>
         <td>{{ user.pseudo }}</td>
         <td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>
+        <td> <button (click)="onDelete(user)">supprimer l'utilisateur</button> </td>
       </tr>
       </tbody>
     </table>

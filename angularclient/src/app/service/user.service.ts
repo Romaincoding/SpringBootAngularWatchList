@@ -19,4 +19,12 @@ export class UserService {
   public save(user: User) {
     return this.http.post<User>(this.usersUrl, user);
   }
+
+  public deleteById(id): Observable<any> {
+      return this.http.delete<User[]>(`${this.usersUrl}/${id}`);
+
+    }
+
+
+
 }
