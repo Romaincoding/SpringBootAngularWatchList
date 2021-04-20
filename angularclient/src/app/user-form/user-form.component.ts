@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../service/user.service';
 import { User } from '../model/user';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CustomValidators } from '../custom-validators';
 
 @Component({
   selector: 'app-user-form',
@@ -11,17 +13,44 @@ import { User } from '../model/user';
 export class UserFormComponent {
 
   user: User;
+  userForm: FormGroup;
 
   constructor(
+  private userService: UserService,
+  private formBuilder: FormBuilder,
     private route: ActivatedRoute,
       private router: Router,
-        private userService: UserService) {
-    this.user = new User();
-  }
+  ){}
+
+   ngOnInit(): void {
+       this.initUserForm();
+     }
+
+
+  initUserForm() {
+      this.userForm = this.formBuilder.group({
+        pseudo: ['', Validators.required],
+        password: [
+          '',
+          Validators.compose([Validators.minLength(6), Validators.required]),
+        ],
+        email: ['', Validators.compose([Validators.email, Validators.required])],
+        confirmPassword: ['', Validators.required],
+      },
+      {
+        validator: CustomValidators.passwordMatchValidator
+      });
+    }
 
   onSubmit() {
+    this.user = {
+    pseudo : this.userForm.value.pseudo,
+    email: this.userForm.value.email,
+    password: this.userForm.value.password,
+    }
     this.userService.save(this.user).subscribe(result => this.gotoUserList());
   }
+
 
 
   gotoUserList() {
