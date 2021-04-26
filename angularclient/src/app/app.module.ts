@@ -6,9 +6,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserFormComponent } from './user-form/user-form.component';
-import { UserService } from './service/user.service';
+import { UserService } from './service/user/user.service';
 import { HeaderComponent } from './header/header.component';
 import { ControlsDbComponent } from './controls-db/controls-db.component';
+import { MovieListComponent } from './movie-list/movie-list.component';
+import {MovieService} from "./service/movie/movie.service";
 
 @NgModule({
   declarations: [
@@ -17,6 +19,7 @@ import { ControlsDbComponent } from './controls-db/controls-db.component';
     UserFormComponent,
     HeaderComponent,
     ControlsDbComponent,
+    MovieListComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,7 @@ import { ControlsDbComponent } from './controls-db/controls-db.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [UserService],
+  providers: [UserService, MovieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

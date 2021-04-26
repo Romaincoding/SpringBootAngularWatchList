@@ -1,4 +1,4 @@
-package com.example.WatchListSpring;
+package com.example.WatchListSpring.controller;
 
 import com.example.WatchListSpring.entity.User;
 import com.example.WatchListSpring.repository.UserRepository;
