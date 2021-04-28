@@ -35,6 +35,4 @@ build/
 ### Python and Tools ###
 /src/main/resources/application.properties
 __pycache__
-src/tools/bdd/__pycache__
-*.pyc
 *.pyc
