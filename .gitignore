@@ -37,3 +37,4 @@ build/
 __pycache__
 src/tools/bdd/__pycache__
 *.pyc
+*.pyc
