@@ -1,0 +1,37 @@
+
+
+DROP TABLE IF EXISTS `agenda`;
+DROP TABLE IF EXISTS `user`;
+DROP TABLE IF EXISTS `avatar`;
+
+
+
+CREATE TABLE `avatar` (
+            `id` INT NOT NULL AUTO_INCREMENT,
+            `url_image` varchar(254) NOT NULL,
+			PRIMARY KEY(`id`)
+) ENGINE=InnoDB;
+
+
+
+CREATE TABLE `user` (
+            `id` INT NOT NULL AUTO_INCREMENT,
+            `email` varchar(254) NOT NULL,
+            `password` varchar(80) NOT NULL,
+            `pseudo` varchar(254) NOT NULL,
+			`avatar_id` INT NOT NULL,
+			`date_inscription` DATE,
+			PRIMARY KEY(`id`),
+            UNIQUE(`email`),
+			CONSTRAINT `FK_avatar_id` FOREIGN KEY(`avatar_id`) REFERENCES avatar(id)
+)ENGINE=InnoDB;
+
+CREATE TABLE `agenda` (
+            `movie_db_id` INT NOT NULL,
+			`week_date` DATE,
+            `user_id` INT NOT NULL,
+			CONSTRAINT `FK_user_movie` FOREIGN KEY(`user_id`) REFERENCES user(id)
+) ENGINE=InnoDB;
+
+
+INSERT INTO `avatar` (`url_image`) VALUES ("no_url");

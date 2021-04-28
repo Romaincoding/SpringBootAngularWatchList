@@ -1,0 +1,7 @@
+spring.jpa.hibernate.ddl-auto=update
+
+spring.datasource.url=jdbc:mysql://${MYSQL_HOST:[CFG_DB_ADDR]}:[CFG_DB_PORT]/[CFG_DB_NAME]
+spring.datasource.username=[CFG_DB_LOGIN]
+spring.datasource.password=[CFG_DB_PWD]
+
+server.port = [CFG_BACK_PORT]
