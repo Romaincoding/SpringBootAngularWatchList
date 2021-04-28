@@ -31,4 +31,8 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Python and Tools ###
 /src/main/resources/application.properties
+__pycache__
+*.pyc
