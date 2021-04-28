@@ -33,12 +33,12 @@ public interface MovieRepository {
 
 
     // https://api.themoviedb.org/3/search/movie?api_key=d0f80747d8ac43db918936f4a3d09e9c&language=fr&query=star&page=1&include_adult=false
-    @GET("3/search/movie?")
-    public Call<SearchWrapper> searchMovies(
+    @GET("3/movie/{filmId}")
+    public Call<JsonMovie> searchOneMovie(
+            @Path("filmId") int filmId,
             @Query("api_key") String apiKey,
-            @Query("language") String language,
-            @Query("query") String searchText,
-            @Query("page") int page);
+            @Query("fr") String language);
+
 
 
 
