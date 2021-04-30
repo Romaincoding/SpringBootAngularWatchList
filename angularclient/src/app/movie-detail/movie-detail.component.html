@@ -1,0 +1,61 @@
+<!--
+<div id="card_container" >
+  <div class="pg col-5">
+    <img src="{{'https://image.tmdb.org/t/p/w500' + movie.filmImage}}">
+  </div>
+  <div class="col-5" id="card">
+    <div class="shine"></div>
+    <div class="text-block">
+      <h1>{{movie.titre}} <small>{{movie.dateSortie}}</small></h1>
+      <h3>Action | Adventure</h3>
+      <p>
+        {{movie.resume}}
+      </p>
+      <button>Watch Trailer</button>
+    </div>
+  </div>
+  </div>
+-->
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <img class="img" src="{{'https://image.tmdb.org/t/p/w500' + movie.filmImage}}">
+    </div>
+    <div class="col">
+      <div class="shine"></div>
+      <div class="text-block">
+        <h1 class="item">{{movie.titre}} </h1>
+        <h3 class="item">Réalisateur</h3>
+        <p class="item">
+          {{movie.resume}}
+        </p>
+        <button class="item">Watch Trailer</button>
+        <h4 class="item">Popularité</h4>
+        <h5 class="item" >Date de sortie</h5>
+      </div>
+    </div>
+  </div>
+</div>
+<!--<div id="card_container" >
+  <div class="row">
+    <div class="col-6">
+      <img class="card-img-top"src="{{'https://image.tmdb.org/t/p/w500' + movie.filmImage}}">
+    </div>
+    <div class="col-4" id="card">
+      <div class="shine"></div>
+      <div class="text-block">
+        <h1 class="mt-3">{{movie.titre}} <small>{{movie.dateSortie}}</small></h1>
+        <h3>Action | Adventure</h3>
+        <p class="mt-3">
+          {{movie.resume}}
+        </p>
+
+        <h6>Date de sortie: {{movie.dateSortie}}</h6>
+        <button>Watch Trailer</button>
+      </div>
+    </div>
+  </div>
+</div>-->
+
+

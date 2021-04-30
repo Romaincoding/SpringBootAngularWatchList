@@ -10,6 +10,7 @@ import { UserService } from './service/user/user.service';
 import { HeaderComponent } from './header/header.component';
 import { ControlsDbComponent } from './controls-db/controls-db.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
+import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import {MovieService} from "./service/movie/movie.service";
 
 @NgModule({
@@ -20,6 +21,7 @@ import {MovieService} from "./service/movie/movie.service";
     HeaderComponent,
     ControlsDbComponent,
     MovieListComponent,
+    MovieDetailComponent,
   ],
   imports: [
     BrowserModule,

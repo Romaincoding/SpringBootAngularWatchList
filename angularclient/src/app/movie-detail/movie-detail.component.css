@@ -1,0 +1,40 @@
+/*#card_container {
+  background-color: grey;
+}
+
+.card-img-top {
+  width: 70%;
+  margin: 2px;
+  padding: 5px;
+}*/
+.img{
+  width: 91%;
+
+}
+
+#container {
+  display: flex;
+  background-color: #4553fe;
+}
+
+.item {
+  background-color: #0dc6ff;
+  padding: 30px;
+  margin: 10px;
+  text-align: center;
+}
+
+#item-img {
+  background-color: #0dc6ff;
+  height: 300px;
+  width: 70%;
+}
+
+.text-block{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.col {
+  margin-top: 10px;
+}

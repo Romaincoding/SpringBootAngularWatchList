@@ -7,14 +7,21 @@ import { Movie } from '../../model/movie';
 @Injectable()
 export class MovieService {
 
-  private usersUrl: string;
+  private movieUrl: string;
 
   constructor(private http: HttpClient) {
-    this.usersUrl = 'http://localhost:8090/movies';
+    this.movieUrl = 'http://localhost:9876/movies';
   }
 
   public findAll(): Observable<Movie[]> {
-    console.log("je suis la " + Movie[0]);
-    return this.http.get<Movie[]>(this.usersUrl);
+    return this.http.get<Movie[]>(this.movieUrl);
+  }
+  public findById(id):  Observable<Movie[]> {
+    console.log(`${this.movieUrl}/${id}`);
+  return this.http.get<Movie[]>(`${this.movieUrl}/${id}`);
+}
+
+  getSingleMovie(id: number) {
+
   }
 }

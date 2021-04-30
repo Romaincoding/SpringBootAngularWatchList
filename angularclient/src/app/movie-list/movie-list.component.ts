@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Movie} from "../model/movie";
 import {MovieService} from "../service/movie/movie.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-movie-list',
@@ -12,13 +13,25 @@ export class MovieListComponent implements OnInit {
   movies: Movie[];
 
 
-  constructor(private movieService : MovieService) { }
+  constructor(  private router: Router,
+                private movieService : MovieService) { }
 
   ngOnInit() {
     this.movieService.findAll().subscribe(data => {
       this.movies = data;
-      console.log("je suis la" + Movie[1].titre)
 
     });
+  }
+
+  OnViewMovie(movie){
+
+    this.movieService.findById(movie.idFilm).subscribe(data => this.gotoDetailMovie(movie.idFilm));
+
+
+  }
+
+
+  gotoDetailMovie(id:number) {
+    this.router.navigate([`/movie`, id]);
   }
 }

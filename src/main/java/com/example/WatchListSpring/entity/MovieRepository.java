@@ -24,7 +24,7 @@ public interface MovieRepository {
 
     //  https://api.themoviedb.org/3/discover/movie?api_key=d0f80747d8ac43db918936f4a3d09e9c&language=fr&sort_by=popularity.desc&page=1"
 
-   @GET("3/discover/movie?")
+    @GET("3/discover/movie?")
     public Call<SearchWrapper> searchCategory(
             @Query("api_key") String apiKey,
             @Query("language") String language,
@@ -45,7 +45,7 @@ public interface MovieRepository {
     //https://api.themoviedb.org/3/discover/movie?api_key=d0f80747d8ac43db918936f4a3d09e9c&language=fr&sort_by=popularity.desc&include_adult=false&page=1&with_genres=28
 
 
-@GET("3/discover/movie?")
+    @GET("3/discover/movie?")
     public Call<SearchWrapper> searchGenre(
             @Query("api_key") String apiKey,
             @Query("language") String language,
@@ -53,8 +53,8 @@ public interface MovieRepository {
             @Query("page") int page,
             @Query("with_genres") int genreId);
 
-//     https://api.themoviedb.org/3/discover/movie?api_key=d0f80747d8ac43db918936f4a3d09e9c&language=fr&sort_by=release_date.desc&include_adult=false&include_video=false&page=1&primary_release_date.gte=1920
-   @GET("3/discover/movie?")
+    //     https://api.themoviedb.org/3/discover/movie?api_key=d0f80747d8ac43db918936f4a3d09e9c&language=fr&sort_by=release_date.desc&include_adult=false&include_video=false&page=1&primary_release_date.gte=1920
+    @GET("3/discover/movie?")
     public Call<SearchWrapper> searchDate(
             @Query("api_key") String apiKey,
             @Query("language") String language,
@@ -62,7 +62,7 @@ public interface MovieRepository {
             @Query("page") int page,
             @Query("primary_release_date.gte") int dateId);
 
-//     REQUETE A L'AFFICHE
+    //     REQUETE A L'AFFICHE
 //    https://api.themoviedb.org/3/movie/now_playing?api_key=d0f80747d8ac43db918936f4a3d09e9c&language=fr&page=1&region=FR
     @GET("3/movie/now_playing?")
     public Call<SearchWrapper> searchNowPlaying(
@@ -71,13 +71,22 @@ public interface MovieRepository {
             @Query("page") int page,
             @Query("region") String region);
 
-//    REQUETE BIENTOT A L'AFFICHE
+    //    REQUETE BIENTOT A L'AFFICHE
 //     https://api.themoviedb.org/3/movie/upcoming?api_key=d0f80747d8ac43db918936f4a3d09e9c&language=fr&page=1&region=FR
     @GET("3/movie/upcoming?")
-    public Call<SearchWrapper> findFilmToCome (
+    public Call<SearchWrapper> findFilmToCome(
             @Query("api_key") String apiKey,
             @Query("language") String language,
             @Query("page") int page,
             @Query("region") String region);
+
+    @GET("3/movie/{filmId}/credits")
+    public Call<String> findMovieDirector(
+            @Path("filmId") int filmId,
+            @Query("api_key") String apiKey,
+            @Query("fr") String language);
+
+
+
 
 }
