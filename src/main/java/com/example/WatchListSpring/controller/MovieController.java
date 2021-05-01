@@ -28,10 +28,12 @@ public class MovieController {
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .build();
 
+        final MovieRepository stringService = retrofit.create(MovieRepository.class);
+
 
         // on générée l'interface => on dit donc :  tu me generes une implémentation de la class filmDbApi que l'on va stocker dans service
 
-        final Call<String> callJson = this.service.findMovieDirector(filmId, MovieDb.API_KEY, MovieDb.LANGUAGE);
+        final Call<String> callJson = stringService.findMovieDirector(filmId, MovieDb.API_KEY, MovieDb.LANGUAGE);
         final Response<String> stringResponse = callJson.execute();
         final String body = stringResponse.body();
         return body;
@@ -41,7 +43,7 @@ public class MovieController {
     MovieController() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://api.themoviedb.org/")
-                .addConverterFactory(ScalarsConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         // on générée l'interface => on dit donc :  tu me generes une implémentation de la class filmDbApi que l'on va stocker dans service
