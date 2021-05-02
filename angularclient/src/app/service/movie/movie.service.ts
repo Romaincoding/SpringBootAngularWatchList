@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../../model/user';
 import { Observable } from 'rxjs/Observable';
 import { Movie } from '../../model/movie';
+import {CrewMember} from "../../model/crewMember";
 
 @Injectable()
 export class MovieService {
@@ -21,7 +22,8 @@ export class MovieService {
   return this.http.get<Movie[]>(`${this.movieUrl}/${id}`);
 }
 
-  getSingleMovie(id: number) {
+  getMovieFullCast(id): Observable<any> {
+    return this.http.get<Movie>(`${this.movieUrl}/director/${id}`);
 
   }
 }

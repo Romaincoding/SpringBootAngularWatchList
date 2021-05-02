@@ -18,7 +18,7 @@
 -->
 
 <div class="container">
-  <div class="row">
+  <div *ngIf="movie" class="row">
     <div class="col">
       <img class="img" src="{{'https://image.tmdb.org/t/p/w500' + movie.filmImage}}">
     </div>
@@ -26,7 +26,10 @@
       <div class="shine"></div>
       <div class="text-block">
         <h1 class="item">{{movie.titre}} </h1>
-        <h3 class="item">Réalisateur</h3>
+        <div *ngIf="directors">
+        <h3 class="item">{{directors}}</h3>
+
+        </div>
         <p class="item">
           {{movie.resume}}
         </p>
